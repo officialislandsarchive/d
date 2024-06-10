@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islands Inventory Catalog</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .special-message {
+            text-align: center;
+            padding: 40px;
+            background-color: #ff69b4;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .special-message h2 {
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .special-message p {
+            color: #fff;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        @keyframes slideInFromBottom {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .special-message .modal-content {
+            animation: slideInFromBottom 0.5s ease-in-out;
+        }
+
+        .special-message .claim-btn {
+            background-color: #ff007f;
+            color: white;
+            padding: 15px 30px;
+            font-size: 24px;
+            border: 2px solid #ff007f;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .special-message .claim-btn:hover {
+            background-color: #ff007f;
+            border-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Islands Inventory Catalog</h1>
+        <div class="buttons-container">
+            <button class="btn" onclick="openModal('crops')">Crops</button>
+            <button class="btn" onclick="openModal('blocks')">Blocks</button>
+            <button class="btn" onclick="openModal('totems')">Totems</button>
+            <button class="btn" onclick="openModal('industrial')">Industrial</button>
+            <button class="btn" onclick="openModal('stations')">Stations</button>
+            <button class="btn" onclick="openModal('cooking')">Cooking</button>
+            <button class="btn" onclick="openModal('seeds')">Seeds</button>
+            <button class="btn" onclick="openModal('slimeIsland')">Slime Island</button>
+            <button class="btn" onclick="openModal('tools')">Tools</button>
+            <button class="btn" onclick="openModal('ore')">Ore</button>            
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search...">
+            <button id="search" class="search-btn" onclick="searchAndWin()">Search</button>
+        </div>
+    </div>
+    <div class="price-update">
+        <a href="https://officialislandsarchive.github.io/Update-Prices/" class="btn" target="_blank">Help Update Prices Here!</a>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalItems"></div>
+        </div>
+    </div>
+    <div id="specialMessageModal" class="modal">
+        <div class="modal-content special-message">
+            <span class="close" onclick="closeSpecialMessageModal()">&times;</span>
+            <h2>🎉 Congratulations! 🎉</h2>
+            <p>You won the 250k coins!</p>
+            <button onclick="claimCoins()" class="claim-btn">Click here to claim</button>
+        </div>
+    </div>
+    <div class="credits-btn-container">
+        <button id="creditsBtn" class="btn credits-btn">Credits</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
